@@ -12,8 +12,8 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;  /* Ativa o scroll */
-    max-height: 500px;  /* Limita a altura do card */
+    overflow-y: auto;
+    max-height: 500px;  
     text-align: start;
   }
   

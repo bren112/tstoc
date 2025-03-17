@@ -10,10 +10,10 @@ function Home() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Verificar se o setor_id está no localStorage e redirecionar para /home_logado
+        
         const setorId = localStorage.getItem('setor_id');
         if (setorId) {
-            navigate('/home_logado'); // Redireciona se o usuário já estiver logado
+            navigate('/home_logado'); 
         }
     }, [navigate]);
 
@@ -39,7 +39,7 @@ function Home() {
         setMensagem(`Bem-vindo, ${data.nome_setor}!`);
 
         setTimeout(() => {
-            navigate('/home_logado'); // Redireciona para /home_logado após login
+            navigate('/home_logado'); 
         }, 2000);
     };
 

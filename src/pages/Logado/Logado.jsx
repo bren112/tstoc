@@ -156,17 +156,16 @@ function Logado() {
 
     return (
         <div>
-            <br />
+                <button onClick={logout} className="logout-button">Logout</button>
+            <div className="fileira">
             <h2 id='setor'>Setor Logado: <span id='spanSetor'>{setor}</span></h2>
-            
-            <br />
-            <div className="acoes">
-                <button id='vencendo' onClick={() => setOrdenacao(ordenacao === 'asc' ? 'desc' : 'asc')}>
+
+            <button id='vencendo' onClick={() => setOrdenacao(ordenacao === 'asc' ? 'desc' : 'asc')}>
                     {ordenacao === 'asc' ? 'Ordenar por Vencendo' : 'Desfazer'}
                 </button>
-                <button onClick={logout} className="logout-button">Logout</button>
-            </div>
-         
+
+        
+
             <div className='mes'>
                 <br />
                 <label htmlFor="mes">Escolha o mês: </label>
@@ -191,24 +190,8 @@ function Logado() {
                 </select>
             </div>
 
-
-            <div class="acordeao">
-    <input type="checkbox" id="acordeao-1" class="acordeao-checkbox" />
-    <label for="acordeao-1" class="acordeao-titulo">
-        <strong>Cliqe p/ver Legenda</strong>
-    </label>
-    <div class="acordeao-conteudo">
-        <ul>
-            <li><strong id='laranja'>laranja:</strong> São as despesas que estão em processo.</li>
-            <li><strong id='verde'>Verde:</strong> Despesas que já foram finalizadas.</li>
-            <li><strong id='amarelo'>Amelo:</strong> Despesas que faltam 7 dias ou menos para vencer</li>
-            <li><strong id='vermelho'>Vermelho:</strong> Despesas que passaram da data de vencimento.</li>
-        </ul>
-    </div>
-</div>
-
-
-
+            </div>
+         
 
             {despesas.length > 0 ? (
                 <div>
@@ -258,8 +241,11 @@ function Logado() {
                                         <td>{new Date(despesa.data_criacao).toLocaleDateString()}</td>
                                         <td>{despesa.venctoo ? new Date(despesa.venctoo).toLocaleDateString() : 'N/A'}</td>
                                         <td>
+                                            <div className="acoes">
                                             <button id='editar' onClick={() => abrirModal(despesa)}>✏️</button>
+                                            <br />
                                             <button id='excluir' onClick={() => excluirDespesa(despesa.id)}>Excluir</button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}
@@ -267,7 +253,23 @@ function Logado() {
                         </table>
                         </div>
                     </div>
+                    
+            <div class="acordeao">
+    <input type="checkbox" id="acordeao-1" class="acordeao-checkbox" />
+    <label for="acordeao-1" class="acordeao-titulo">
+        <strong>Cliqe p/ver Legenda</strong>
+    </label>
+    <div class="acordeao-conteudo">
+        <ul>
+            <li><strong id='laranja'>laranja:</strong> São as despesas que estão em processo.</li>
+            <li><strong id='verde'>Verde:</strong> Despesas que já foram finalizadas.</li>
+            <li><strong id='amarelo'>Amarelo:</strong> Despesas que faltam 7 dias ou menos para vencer</li>
+            <li><strong id='vermelho'>Vermelho:</strong> Despesas que passaram da data de vencimento.</li>
+        </ul>
+    </div>
+</div>
                 </div>
+                
             ) : (
                 <p>Sem despesas registradas.</p>
             )}
@@ -376,7 +378,7 @@ function Logado() {
                             setDespesaEditando({ ...despesaEditando, status: e.target.value })
                         }
                     >
-                        <option value={null}>null</option>
+                        <option value="null">null</option>
                         <option value="pendente">pendente</option>
                         <option value="concluida">concluida</option>
                         

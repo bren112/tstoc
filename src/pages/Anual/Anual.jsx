@@ -9,7 +9,7 @@ function Anual() {
     const [mes, setMes] = useState('');
     const [despesaEditando, setDespesaEditando] = useState(null);
     const [modalAberto, setModalAberto] = useState(false);
-    const [ordenacao, setOrdenacao] = useState('asc'); // Estado para controlar a ordenação
+    const [ordenacao, setOrdenacao] = useState('asc'); 
     const setorId = localStorage.getItem('setor_id');
     const navigate = useNavigate();
 
@@ -43,7 +43,7 @@ function Anual() {
 
         fetchSetor();
         
-        const mesAtual = new Date().getMonth() + 1; // getMonth() retorna de 0 a 11, então somamos 1
+        const mesAtual = new Date().getMonth() + 1;
         setMes(mesAtual.toString());
     
     }, [setorId]);
@@ -141,7 +141,7 @@ function Anual() {
         return ''; 
     };
 
-    // Função para ordenar as despesas pela coluna 'Vencimento'
+ 
     const ordenarDespesas = (despesas) => {
         return despesas.sort((a, b) => {
             const vencimentoA = new Date(a.vencto);
@@ -156,18 +156,16 @@ function Anual() {
 
     return (
         <div>
-            {/* <Link to='/anualcreate' id='link'>Criar Anual</Link> */}
-            <br />
+        <button onClick={logout} className="logout-button">Logout</button>
+            <div className="fileira">
             <h2 id='setor'>Setor Logado: <span id='spanSetor'>{setor}</span></h2>
-            
-            <br />
-            <div className="acoes">
-                <button id='vencendo' onClick={() => setOrdenacao(ordenacao === 'asc' ? 'desc' : 'asc')}>
+
+            <button id='vencendo' onClick={() => setOrdenacao(ordenacao === 'asc' ? 'desc' : 'asc')}>
                     {ordenacao === 'asc' ? 'Ordenar por Vencendo' : 'Desfazer'}
                 </button>
-                <button onClick={logout} className="logout-button">Logout</button>
-            </div>
-         
+
+        
+
             <div className='mes'>
                 <br />
                 <label htmlFor="mes">Escolha o mês: </label>
@@ -192,6 +190,8 @@ function Anual() {
                 </select>
             </div>
 
+            </div>
+         
 
             <div class="acordeao">
     <input type="checkbox" id="acordeao-1" class="acordeao-checkbox" />
@@ -259,8 +259,10 @@ function Anual() {
                                         <td>{new Date(despesa.data_criacao).toLocaleDateString()}</td>
                                         <td>{despesa.venctoo ? new Date(despesa.venctoo).toLocaleDateString() : 'N/A'}</td>
                                         <td>
+                                        <div className="acoes">
                                             <button id='editar' onClick={() => abrirModal(despesa)}>✏️</button>
                                             <button id='excluir' onClick={() => excluirDespesa(despesa.id)}>Excluir</button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}

@@ -76,7 +76,7 @@ const criarAnual = () => {
             required
           />
 
-          <label htmlFor="emp">Emp. (Número):</label>
+          <label htmlFor="emp">Emp:</label>
           <input
             type="number"
             name="emp"
@@ -85,7 +85,7 @@ const criarAnual = () => {
             required
           />
 
-          <label htmlFor="Vencto">Vencimento (Número):</label>
+          <label htmlFor="Vencto">Vencimento:</label>
           <input
             type="number"
             name="Vencto"
@@ -94,7 +94,7 @@ const criarAnual = () => {
             required
           />
 
-          <label htmlFor="RectoFat">Recto. Fat. (Número):</label>
+          <label htmlFor="RectoFat">Recto. Fat:</label>
           <input
             type="number"
             name="RectoFat"
