@@ -1,0 +1,91 @@
+.container_total{
+  display: flex;
+  justify-content: center;
+}
+
+/* Estilos gerais da tabela */
+#table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalhos da tabela */
+#thead th {
+  background-color: #7dba06;
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Linhas da tabela */
+#tbody td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+/* Estilo para linhas alternadas */
+#tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Estilo das linhas baseadas no status */
+.concluido {
+  background-color: #d4edda;
+}
+
+.pendente {
+  background-color: #f8d7da;
+}
+
+/* Estilo do botão "Assinar" */
+button {
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos da coluna de status */
+.status {
+  font-weight: bold;
+}
+
+.status.concluido {
+  color: #28a745; /* Cor verde para status concluído */
+}
+
+.status.pendente {
+  color: #dc3545; /* Cor vermelha para status pendente */
+}
+
+/* Estilo para as células do botão de assinatura */
+td button {
+  margin: 0;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos adicionais */
+
+
+th, td {
+  border: 1px solid #ddd; /* Borda leve para as células */
+}
+
+/* Adiciona espaçamento no topo e margens */

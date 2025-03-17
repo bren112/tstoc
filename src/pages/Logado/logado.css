@@ -1,0 +1,303 @@
+#centro{
+    text-align: center;
+}
+table {
+    width: 100%;
+    max-width: 100%; /* Garante que a tabela não ultrapasse a largura da tela */
+    border-collapse: collapse;
+    margin: 10px 0; /* Reduzido para diminuir o espaço */
+    font-family: 'Arial', sans-serif;
+    overflow-x: auto;
+    display: block;
+}
+
+thead {
+    background-color: #7dba06;
+    color: white;
+}
+
+th, td {
+    padding: 4px; /* Reduzido para diminuir o tamanho das células */
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 10px; /* Fonte reduzida para diminuir a tabela */
+    font-weight: 500;
+}
+
+th {
+    font-weight: bold;
+}
+
+/* Estilo das linhas da tabela */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Estilo para o cabeçalho da página */
+h2, h3 {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.2em; /* Menor tamanho para título */
+    margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 1.0em; /* Menor tamanho para subtítulo */
+    color: #4CAF50;
+    margin-top: 15px;
+}
+
+/* Estilos para as mensagens */
+p {
+    font-size: 0.9em; /* Menor fonte para mensagens */
+    color: #555;
+}
+
+/* Responsividade: tabela adaptável a telas menores */
+@media (max-width: 768px) {
+    table {
+        font-size: 8px; /* Reduzido ainda mais a fonte */
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    th, td {
+        padding: 4px; /* Menos padding em dispositivos móveis */
+    }
+
+    h2 {
+        font-size: 1.2em; /* Tamanho de título ainda menor */
+    }
+
+    h3 {
+        font-size: 1.0em; /* Tamanho de subtítulo menor */
+    }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 90%; /* Ajuste para modal não passar da tela */
+    width: 700px; /* Limitar a largura */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 15px;
+    overflow: auto;
+}
+
+/* Estilo para inputs */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.input-group input,
+.input-group textarea {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+/* Estilo para botões */
+button {
+    padding: 6px 12px; /* Botões menores */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 8px 4px; /* Menor espaçamento entre botões */
+}
+
+.submit-button {
+    background-color: #7dba06;
+    color: white;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.logout-button {
+    background-color: #f32c21;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Container Modal */
+.containerModal {
+    display: flex;
+    justify-content: space-around;
+    gap: 4pc;
+}
+
+.table {
+    margin: 2pc;
+    display: flex;
+    justify-content: center;
+}
+.acoes{
+    display: flex;
+    justify-content: space-around;
+}
+#vencendo{
+    background-color: #f1f1f1;
+    color: #555;
+}
+#excluir{
+    background-color: rgb(244, 38, 38);
+    color: white;
+}
+
+/* Modal Container */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Content */
+  .modal form {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 80vh; /* Limit the height to 80% of the viewport */
+  }
+  
+  /* Modal Header */
+  .modal h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+  }
+  
+  /* Label and Input Styles */
+  .modal label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+  }
+  
+  .modal input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+ .mes{
+    margin: 2pc;
+ }
+ .fim{
+    display: flex;
+    justify-content: end;
+ }
+ #spanSetor{
+    color: #7dba06;
+    font-weight: 800;
+ }
+ #setor{
+    margin: 2pc;
+    font-size: 1pc;
+ }
+/* Estilos do acordeão */
+.acordeao {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.acordeao-checkbox {
+    display: none;
+}
+
+.acordeao-titulo {
+    background-color: #aaaaaa00;
+    color: rgb(172, 172, 172);
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    width: 20%;
+    display: block;
+}
+
+.acordeao-conteudo {
+    display: none;
+    padding: 15px;
+    background-color: #f1f1f1;
+    margin-top: 5px;
+    width: 33pc;
+    border-radius: 1pc;
+}
+
+.acordeao-checkbox:checked + .acordeao-titulo + .acordeao-conteudo {
+    display: block;
+}
+
+.acordeao-conteudo ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.acordeao-conteudo li {
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+
+#laranja{background-color: orange;}
+#verde{background-color: green;}
+#amarelo{background-color: yellow;}
+#vermelho{background-color: red;}

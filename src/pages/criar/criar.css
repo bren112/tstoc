@@ -1,0 +1,31 @@
+.card-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        align-items: center;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;  /* Ativa o scroll */
+    max-height: 500px;  /* Limita a altura do card */
+    text-align: start;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input, textarea, select, button {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  

@@ -1,0 +1,71 @@
+/* Contêiner principal do login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* Estilo do card */
+.card {
+    background-color: white; /* Cor de fundo branca */
+    padding: 30px;
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%;
+    max-width: 400px; /* Largura máxima do card */
+    text-align: center;
+}
+
+/* Estilo do título */
+.card h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo dos campos de entrada (usuário e senha) */
+.card input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+
+/* Estilo do botão de login */
+.card button {
+    width: 100%;
+    padding: 10px;
+    background-color: #7dba06;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Efeito de hover no botão */
+.card button:hover {
+    background-color: #94d414;
+}
+
+/* Estilo da mensagem de erro ou sucesso */
+.card p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #d9534f; /* Cor vermelha para erros */
+    font-weight: bold;
+}
+
+/* Estilo de mensagem de sucesso (exemplo, se necessário) */
+.card .success-message {
+    color: #5bc0de; /* Cor azul para sucesso */
+}
+#corUsina{
+    color: #7dba06;
+}
