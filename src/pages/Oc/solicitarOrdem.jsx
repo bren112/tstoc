@@ -30,6 +30,7 @@ const CriarOrdemCompra = () => {
       console.error('Erro ao inserir ordem de compra:', error.message);
     } else {
       console.log('Ordem de compra inserida com sucesso!', data);
+      window.location.href = '/lista_ordem'; 
     }
   };
 

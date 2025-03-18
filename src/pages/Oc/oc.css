@@ -30,19 +30,6 @@
   font-size: 14px;
 }
 
-/* Estilo para linhas alternadas */
-#tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-/* Estilo das linhas baseadas no status */
-.concluido {
-  background-color: #d4edda;
-}
-
-.pendente {
-  background-color: #f8d7da;
-}
 
 /* Estilo do botão "Assinar" */
 button {
@@ -65,6 +52,12 @@ button:hover {
 }
 
 .status.concluido {
+  color: #28a745; /* Cor verde para status concluído */
+}
+.status.aprovado {
+  color: #28a745; /* Cor verde para status concluído */
+}
+.status.Aprovado {
   color: #28a745; /* Cor verde para status concluído */
 }
 

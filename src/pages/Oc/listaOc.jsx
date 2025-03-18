@@ -46,7 +46,7 @@ const ListaOrdensCompra = () => {
   const salvarAssinatura = async () => {
     if (!ordemSelecionada) return;
 
-    const status = assinatura ? "Concluído" : "Pendente";
+    const status = assinatura ? "Aprovado" : "Pendente";
 
     const { error } = await supabase
       .from("ordem_compra")
@@ -88,7 +88,7 @@ const ListaOrdensCompra = () => {
             {ordens.map((ordem) => (
               <tr
                 key={ordem.id}
-                className={ordem.status === "Concluído" ? "concluido" : "pendente"}
+                className={ordem.status === "Aprovado" ? "aprovado" : "pendente"}
               >
       
                 <td>{ordem.ordem}</td>
