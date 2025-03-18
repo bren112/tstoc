@@ -155,6 +155,14 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+.logout-button :hover{
+    transition: 1.3s;
+    background-color: #c2372f;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 /* Container Modal */
 .containerModal {

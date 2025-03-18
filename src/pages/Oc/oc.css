@@ -42,9 +42,7 @@ button {
   font-size: 14px;
 }
 
-button:hover {
-  background-color: #0056b3;
-}
+
 
 /* Estilos da coluna de status */
 .status {
