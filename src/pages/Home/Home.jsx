@@ -61,7 +61,7 @@ function Home() {
                 onChange={(e) => setSenha(e.target.value)}
             />
             <button onClick={handleLogin}>Entrar</button>
-            {mensagem && <p>{mensagem}</p>}
+            {mensagem && <p id='msg'>{mensagem}</p>}
         </div></div>
     );
 }

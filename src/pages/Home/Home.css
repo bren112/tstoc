@@ -35,7 +35,10 @@
     font-size: 1rem;
 }
 
-
+#msg{
+    background-color: #7dba06;
+    color: white;   
+}
 /* Estilo do botão de login */
 .card button {
     width: 100%;

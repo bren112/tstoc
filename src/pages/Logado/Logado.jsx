@@ -213,7 +213,7 @@ function Logado() {
                                     <th>Campo de Aplicação</th>
                                     <th>Observação</th>
                                     <th>Status</th>
-                                    <th>Data de Criação</th>
+                                    {/* <th>Data de Criação</th> */}
                                     <th>Vencimento Data</th>
                                     <th>Ações</th>
                                 </tr>
@@ -238,7 +238,7 @@ function Logado() {
                                         <td>{despesa.campo_aplicacao}</td>
                                         <td>{despesa.observacao}</td>
                                         <td>{despesa.status}</td>
-                                        <td>{new Date(despesa.data_criacao).toLocaleDateString()}</td>
+                                        {/* <td>{new Date(despesa.data_criacao).toLocaleDateString()}</td> */}
                                         <td>{despesa.venctoo ? new Date(despesa.venctoo).toLocaleDateString() : 'N/A'}</td>
                                         <td>
                                             <div className="acoes">
