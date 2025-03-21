@@ -4,6 +4,7 @@ import './solicitar.css'
 const CriarOrdemCompra = () => {
   const [ordem, setOrdem] = useState('');
   const [solicitante, setSolicitante] = useState('');
+  const [empresa, setEmpresa] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +23,8 @@ const CriarOrdemCompra = () => {
         {
           id_setores: setorId, // Setor correto vindo do LocalStorage
           ordem,
-          solicitante
+          solicitante,
+          empresa
         }
       ]);
 
@@ -66,6 +68,18 @@ const CriarOrdemCompra = () => {
           name="solicitante"
           value={solicitante}
           onChange={(e) => setSolicitante(e.target.value)}
+          required
+        />
+        <br/>
+        <label htmlFor="solicitante">Empresa:</label>
+
+<br/>
+        <input
+        id='empresa'
+          type="text"
+          name="empresa"
+          value={empresa}
+          onChange={(e) => setEmpresa(e.target.value)}
           required
         />
         <br/>

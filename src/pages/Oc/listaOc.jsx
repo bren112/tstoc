@@ -80,8 +80,11 @@ const ListaOrdensCompra = () => {
        
               <th>Ordem</th>
               <th>Solicitante</th>
-              <th>Assinatura</th>
+              <th>Empresa</th>
               <th>Status</th>
+              <th>Assinatura</th>
+              
+          
             </tr>
           </thead>
           <tbody>
@@ -93,6 +96,8 @@ const ListaOrdensCompra = () => {
       
                 <td>{ordem.ordem}</td>
                 <td>{ordem.solicitante}</td>
+                <td>{ordem.empresa}</td>
+                <td className="status">{ordem.status}</td>
                 <td>
                   {ordem.assinatura ? (
                     ordem.assinatura
@@ -100,7 +105,6 @@ const ListaOrdensCompra = () => {
                     <button id="editar" onClick={() => abrirModal(ordem)}>Assinar</button>
                   )}
                 </td>
-                <td className="status">{ordem.status}</td>
               </tr>
             ))}
           </tbody>

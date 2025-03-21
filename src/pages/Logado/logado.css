@@ -8,6 +8,10 @@ table {
     margin: 20px auto; /* Centraliza a tabela e mantém espaçamento */
     font-family: Arial, sans-serif;
     font-size: 11px;
+    border-collapse: collapse;
+    overflow-y: auto;  /* Permite rolagem vertical na tabela */
+    display: block;    /* Necessário para rolagem */
+    max-height: 300px; /* Ajuste o valor conforme necessário */
 }
 table th, table td {
     padding: 5px 7px;
@@ -17,9 +21,12 @@ table th, table td {
     font-weight: 700;
 }
 table th {
-    background-color:rgb(42, 41, 41);
-    color: white; 
+    background-color: rgb(42, 41, 41);
+    color: white;
     font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 

@@ -195,7 +195,7 @@ function Logado() {
 
             {despesas.length > 0 ? (
                 <div>
-                    <h1 id='centro'>Despesas Mensais:</h1>
+                    <h1 id='centro'>Despesas Mensais</h1>
                     <div className="table">
                         <div className="tst">
                         <table>
