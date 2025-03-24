@@ -19,3 +19,8 @@ link{
   text-decoration: none;
   
 }
+.subheader{
+  display: flex;
+  justify-content: space-around;
+  margin: 2pc;
+}

@@ -51,10 +51,11 @@ function Navbar() {
             </Link>
           </li>
           <li className="nav__item">
-            <Link to="/anualcreate" className="nav__link">
-              Criar Anual
+            <Link to="/diretoria" className="nav__link">
+              Diretoria
             </Link>
           </li>
+  
         </ul>
       )}
 

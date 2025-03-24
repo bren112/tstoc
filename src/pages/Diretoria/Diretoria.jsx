@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import supabase from '../../supabaseclient';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import './logado.css';
 
-function Anual() {
+function Diretoria() {
     const [setor, setSetor] = useState(null);
     const [despesas, setDespesas] = useState([]);
     const [mes, setMes] = useState('');
     const [despesaEditando, setDespesaEditando] = useState(null);
     const [modalAberto, setModalAberto] = useState(false);
-    const [ordenacao, setOrdenacao] = useState('asc'); 
+    const [ordenacao, setOrdenacao] = useState('asc'); // Estado para controlar a ordenação
     const setorId = localStorage.getItem('setor_id');
     const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ function Anual() {
              }
 
             const { data: despesasData, error: despesasError } = await supabase
-                .from('despesasanuais')
+                .from('diretoria')
                 .select('*')
                 .eq('id_setores', setorId);
 
@@ -43,7 +43,7 @@ function Anual() {
 
         fetchSetor();
         
-        const mesAtual = new Date().getMonth() + 1;
+        const mesAtual = new Date().getMonth() + 1; // getMonth() retorna de 0 a 11, então somamos 1
         setMes(mesAtual.toString());
     
     }, [setorId]);
@@ -78,7 +78,7 @@ function Anual() {
         const { id, fornecedor, cnpj, emp, vencto, recto_fat, valor, nota_fiscal, ordem_de_compra, pedido, campo_aplicacao, observacao, status, data_criacao, venctoo } = despesaEditando;
 
         const { error } = await supabase
-            .from('despesasanuais')
+            .from('diretoria')
             .update({
                 fornecedor,
                 cnpj,
@@ -106,7 +106,7 @@ function Anual() {
 
     const excluirDespesa = async (id) => {
         const { error } = await supabase
-            .from('despesasanuais')
+            .from('diretoria')
             .delete()
             .eq('id', id);
 
@@ -114,7 +114,7 @@ function Anual() {
             console.error('Erro ao excluir despesa:', error.message);
         } else {
             alert('Despesa excluída com sucesso!');
-            fetchSetor();
+            window.location.reload(); 
         }
     };
 
@@ -141,7 +141,7 @@ function Anual() {
         return ''; 
     };
 
- 
+    // Função para ordenar as despesas pela coluna 'Vencimento'
     const ordenarDespesas = (despesas) => {
         return despesas.sort((a, b) => {
             const vencimentoA = new Date(a.vencto);
@@ -156,94 +156,46 @@ function Anual() {
 
     return (
         <div>
-          
-            <div className="subheader">
-        <button onClick={logout} className="logout-button">Logout</button>
-        <Link to='/anualcreate'>
-        <button>Criar Anual</button>
-        </Link>
-        </div>
+                <button onClick={logout} className="logout-button">Logout</button>
             <div className="fileira">
-            <h2 id='setor'>Setor Logado: <span id='spanSetor'>{setor}</span></h2>
+            {/* <h2 id='setor'>Setor Logado: <span id='spanSetor'>{setor}</span></h2> */}
 
-            <button id='vencendo' onClick={() => setOrdenacao(ordenacao === 'asc' ? 'desc' : 'asc')}>
+            {/* <button id='vencendo' onClick={() => setOrdenacao(ordenacao === 'asc' ? 'desc' : 'asc')}>
                     {ordenacao === 'asc' ? 'Ordenar por Vencendo' : 'Desfazer'}
-                </button>
+                </button> */}
 
         
 
-            <div className='mes'>
-                <br />
-                <label htmlFor="mes">Escolha o mês: </label>
-                <select
-                    id="mes"
-                    value={mes}
-                    onChange={(e) => setMes(e.target.value)}
-                >
-                    <option value="">Selecione</option>
-                    <option value="1">Janeiro</option>
-                    <option value="2">Fevereiro</option>
-                    <option value="3">Março</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Maio</option>
-                    <option value="6">Junho</option>
-                    <option value="7">Julho</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Setembro</option>
-                    <option value="10">Outubro</option>
-                    <option value="11">Novembro</option>
-                    <option value="12">Dezembro</option>
-                </select>
-            </div>
+
 
             </div>
          
 
-            <div class="acordeao">
-    <input type="checkbox" id="acordeao-1" class="acordeao-checkbox" />
-    <label for="acordeao-1" class="acordeao-titulo">
-        <strong>Cliqe p/ver Legenda</strong>
-    </label>
-    <div class="acordeao-conteudo">
-        <ul>
-            <li><strong id='laranja'>laranja:</strong> São as despesas que estão em processo.</li>
-            <li><strong id='verde'>Verde:</strong> Despesas que já foram finalizadas.</li>
-            <li><strong id='amarelo'>Amelo:</strong> Despesas que faltam 7 dias ou menos para vencer</li>
-            <li><strong id='vermelho'>Vermelho:</strong> Despesas que passaram da data de vencimento.</li>
-        </ul>
-    </div>
-</div>
-
-
-
-
             {despesas.length > 0 ? (
                 <div>
-                    <h1 id='centro'>Despesas Anuais</h1>
+                    <h1 id='centro'>Despesas Diretoria</h1>
                     <div className="table">
                         <div className="tst">
                         <table>
                             <thead>
                                 <tr>
                                     <th>Fornecedor</th>
-                                    <th>CNPJ</th>
                                     <th>Emp</th>
                                     <th>Vencimento Dia</th>
                                     <th>Recebimento</th>
                                     <th>Valor</th>
-                                    <th>Nota Fiscal</th>
-                                    <th>Ordem de Compra</th>
-                                    <th>Pedido</th>
                                     <th>Campo de Aplicação</th>
                                     <th>Observação</th>
                                     <th>Status</th>
-                                    <th>Data de Criação</th>
-                                    <th>Vencimento Data</th>
+                                
+                                 
+                                    {/* <th>Data de Criação</th> */}
+                              
                                     <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {ordenarDespesas(filtrarDespesasPorMes()).map((despesa) => (
+                                {ordenarDespesas(despesas).map((despesa) => (
                                     <tr
                                         key={despesa.id}
                                         style={{
@@ -251,22 +203,21 @@ function Anual() {
                                         }}
                                     >
                                         <td>{despesa.fornecedor}</td>
-                                        <td>{despesa.cnpj}</td>
+        
                                         <td>{despesa.emp}</td>
-                                        <td>{despesa.vencto}</td>
-                                        <td>{despesa.recto_fat}</td>
+                                        <td>{despesa.Vencto}</td>
+                                        <td>{despesa.RectoFat}</td>
                                         <td>{`R$ ${despesa.valor.toFixed(2).replace('.', ',')}`}</td>
-                                        <td>{despesa.nota_fiscal}</td>
-                                        <td>{despesa.ordem_de_compra}</td>
-                                        <td>{despesa.pedido}</td>
-                                        <td>{despesa.campo_aplicacao}</td>
+                                        <td>{despesa.campoAplicacao}</td>
                                         <td>{despesa.observacao}</td>
                                         <td>{despesa.status}</td>
-                                        <td>{new Date(despesa.data_criacao).toLocaleDateString()}</td>
-                                        <td>{despesa.venctoo ? new Date(despesa.venctoo).toLocaleDateString() : 'N/A'}</td>
+                                    
+                                        {/* <td>{new Date(despesa.data_criacao).toLocaleDateString()}</td> */}
+                                       
                                         <td>
-                                        <div className="acoes">
+                                            <div className="acoes">
                                             <button id='editar' onClick={() => abrirModal(despesa)}>✏️</button>
+                                            <br />
                                             <button id='excluir' onClick={() => excluirDespesa(despesa.id)}>Excluir</button>
                                             </div>
                                         </td>
@@ -276,7 +227,23 @@ function Anual() {
                         </table>
                         </div>
                     </div>
+                    
+            {/* <div class="acordeao">
+    <input type="checkbox" id="acordeao-1" class="acordeao-checkbox" />
+    <label for="acordeao-1" class="acordeao-titulo">
+        <strong>Cliqe p/ver Legenda</strong>
+    </label>
+    <div class="acordeao-conteudo">
+        <ul>
+            <li><strong id='laranja'>laranja:</strong> São as despesas que estão em processo.</li>
+            <li><strong id='verde'>Verde:</strong> Despesas que já foram finalizadas.</li>
+            <li><strong id='amarelo'>Amarelo:</strong> Despesas que faltam 7 dias ou menos para vencer</li>
+            <li><strong id='vermelho'>Vermelho:</strong> Despesas que passaram da data de vencimento.</li>
+        </ul>
+    </div>
+</div> */}
                 </div>
+                
             ) : (
                 <p>Sem despesas registradas.</p>
             )}
@@ -385,9 +352,9 @@ function Anual() {
                             setDespesaEditando({ ...despesaEditando, status: e.target.value })
                         }
                     >
-                        <option value={null}>null</option>
-                        <option value="pendente">pendente</option>
-                        <option value="concluida">concluida</option>
+                        <option value="null">null</option>
+                        <option value="Entregue">Entregue</option>
+                        <option value="Não Entregue">Não Entregue</option>
                         
                         
                     </select>
@@ -409,4 +376,4 @@ function Anual() {
     );
 }
 
-export default Anual;
+export default Diretoria;
