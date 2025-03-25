@@ -9,7 +9,8 @@ function Logado() {
     const [mes, setMes] = useState('');
     const [despesaEditando, setDespesaEditando] = useState(null);
     const [modalAberto, setModalAberto] = useState(false);
-    const [ordenacao, setOrdenacao] = useState('asc'); // Estado para controlar a ordenação
+    const [ordenacao, setOrdenacao] = useState('asc'); 
+    const [termoPesquisa, setTermoPesquisa] = useState('');
     const setorId = localStorage.getItem('setor_id');
     const navigate = useNavigate();
 
@@ -69,6 +70,15 @@ function Logado() {
     const fecharModal = () => {
         setModalAberto(false);
         setDespesaEditando(null);
+    };
+    const filtrarDespesasPorPesquisa = () => {
+        if (!termoPesquisa) return filtrarDespesasPorMes();
+        
+        return filtrarDespesasPorMes().filter((despesa) =>
+            Object.values(despesa).some((valor) =>
+                valor?.toString().toLowerCase().includes(termoPesquisa.toLowerCase())
+            )
+        );
     };
 
     const editarDespesa = async (e) => {
@@ -192,7 +202,14 @@ function Logado() {
 
             </div>
          
-
+            <div className="pesquisa-container">
+                <input
+                    type="text"
+                    placeholder="Pesquisar..."
+                    value={termoPesquisa}
+                    onChange={(e) => setTermoPesquisa(e.target.value)}
+                />
+            </div>
             {despesas.length > 0 ? (
                 <div>
                     <h1 id='centro'>Despesas Mensais</h1>
@@ -219,7 +236,8 @@ function Logado() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {ordenarDespesas(filtrarDespesasPorMes()).map((despesa) => (
+                            {ordenarDespesas(filtrarDespesasPorPesquisa()).map((despesa) => (
+                             
                                     <tr
                                         key={despesa.id}
                                         style={{
